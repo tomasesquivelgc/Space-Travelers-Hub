@@ -5,6 +5,7 @@ import NavBar from './components/Navbar';
 import Myprofile from './components/Routes/Myprofile';
 import Rockets from './components/Routes/Rockets';
 import Missions from './components/Routes/Mission';
+import { setRockets } from './redux/rocketsSlice';
 
 function App() {
   const dispatch = useDispatch();

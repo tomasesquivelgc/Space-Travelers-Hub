@@ -5,7 +5,7 @@ const rocketsSlice = createSlice({
   initialState: [],
   reducers: {
     setRockets: (state, action) => {
-      const filteredRockets = action.payload.map(rocket => ({
+      const filteredRockets = action.payload.map((rocket) => ({
         id: rocket.id,
         rocket_name: rocket.rocket_name,
         flickr_images: rocket.flickr_images,
