@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import NavBar from './components/Navbar';
 import Myprofile from './components/Routes/Myprofile';
 import Rockets from './components/Routes/Rockets';
-import { setRockets } from './redux/rocketsSlice';
+import Missions from './components/Routes/Mission';
 
 function App() {
   const dispatch = useDispatch();
@@ -19,13 +19,14 @@ function App() {
   }, [dispatch]);
 
   return (
-    <Router>
+    <>
       <NavBar />
       <Routes>
-        <Route path="/Profile" element={<Myprofile />} />
         <Route path="/" element={<Rockets />} />
+        <Route path="/Missions" element={<Missions />} />
+        <Route path="/Profile" element={<Myprofile />} />
       </Routes>
-    </Router>
+    </>
   );
 }
 
