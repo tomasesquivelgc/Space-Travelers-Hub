@@ -1,29 +1,42 @@
 import { NavLink } from 'react-router-dom';
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
+import '../styles/Navbar.css';
 import planet from '../images/planet.png';
 
-const NavBar = () => (
-  <Navbar bg="light" data-bs-theme="light">
-    <Container>
-      <Navbar.Brand to="/">
-        <img
-          alt=""
-          src={planet}
-          width="30"
-          height="30"
-          className="d-inline-block align-top"
-        />
-        {' '}
-        Space Travelers&apos; Hub
-      </Navbar.Brand>
-      <nav className="me-auto">
-        <NavLink to="/">Rockets</NavLink>
-        <NavLink to="/Missions">Missions</NavLink>
-        <NavLink to="/Profile">My Profile</NavLink>
-      </nav>
-    </Container>
-  </Navbar>
+const Navbar = () => (
+  <nav id="nav">
+    <div className="logo_title_container">
+      <img className="logo" src={planet} alt="logo" />
+      <h3 className="fontW400 margin0">Space Travelers&apos; Hub</h3>
+    </div>
+
+    <div>
+      <ul className="desktopShow NavBar_ul">
+        <li>
+          <NavLink
+            className={({ isActive }) => (isActive ? 'active' : ' ')}
+            to="/"
+          >
+            {' '}
+            Rockets
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/Missions">Missions</NavLink>
+        </li>
+        <li className="profileLi">
+          <div className="spearator" />
+          <NavLink
+            className={({ isActive }) => (isActive ? 'active' : ' ')}
+            to="/Profile"
+          >
+            {' '}
+            Profile
+            {' '}
+          </NavLink>
+        </li>
+      </ul>
+    </div>
+  </nav>
 );
 
-export default NavBar;
+export default Navbar;
