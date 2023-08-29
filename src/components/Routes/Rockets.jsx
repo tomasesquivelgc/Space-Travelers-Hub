@@ -1,7 +1,21 @@
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setRockets } from '../../redux/rocketsSlice';
 
 function Rockets() {
   const rockets = useSelector((state) => state.rockets);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    // Check if rockets data is empty, then fetch and dispatch
+    if (rockets.length === 0) {
+      fetch('https://api.spacexdata.com/v3/rockets')
+        .then((response) => response.json())
+        .then((data) => {
+          dispatch(setRockets(data));
+        });
+    }
+  }, [rockets, dispatch]);
 
   return (
     <div>
