@@ -4,14 +4,8 @@ import { Button, Table } from 'react-bootstrap';
 function Missions() {
   return (
     <Table
-      striped
-      bordered
-      style={{
-        marginTop: '20px',
-        boxSizing: 'border-box',
-        width: '96vw',
-        marginLeft: '2vw',
-      }}
+      className="table table-striped table-bordered table-hover table-sm m-5"
+      style={{ width: '94%' }}
     >
       <thead>
         <tr>
