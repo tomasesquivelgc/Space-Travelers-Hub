@@ -17,7 +17,7 @@ li a {
   padding-right: 30px;
   padding-left: 30px;
   background-color: #fff;
-  border: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
   align-items: center;
   justify-content: space-between;
   padding-bottom: 10px;
