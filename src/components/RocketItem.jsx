@@ -2,15 +2,16 @@ import PropTypes from 'prop-types';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Image } from 'react-bootstrap';
-import {Button} from 'react-bootstrap';
+import { Image, Button } from 'react-bootstrap';
 
 function RocketItem({ rocket }) {
   return (
     <li>
       <Container fluid>
         <Row>
-          <Col md={4} sm={5} lg={3}><Image src={rocket.flickr_images[0]} alt={rocket.rocket_name} fluid/></Col>
+          <Col md={4} sm={5} lg={3}>
+            <Image src={rocket.flickr_images[0]} alt={rocket.rocket_name} fluid />
+          </Col>
           <Col>
             <h3>{rocket.rocket_name}</h3>
             <p>{rocket.description}</p>
@@ -40,6 +41,7 @@ RocketItem.propTypes = {
     engines: PropTypes.shape({
       type: PropTypes.string.isRequired,
     }).isRequired,
+    description: PropTypes.string.isRequired,
   }).isRequired,
 };
 
