@@ -3,8 +3,20 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Image, Button } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { reserveRocket, cancelRocket } from '../redux/rocketsSlice';
 
 function RocketItem({ rocket }) {
+  const dispatch = useDispatch();
+
+  const handleReserveRocket = (rocketId) => {
+    dispatch(reserveRocket(rocketId))
+  };
+
+  const handleCancelRocket = (rocketId) => {
+    dispatch(cancelRocket(rocketId));
+  }
+
   return (
     <li>
       <Container fluid>
@@ -23,6 +35,7 @@ function RocketItem({ rocket }) {
               type="button"
               style={{ width: '160px' }}
               variant="primary"
+              onClick={() => handleReserveRocket(rocket.id)}
             >
               Reserve Rocket
             </Button>
