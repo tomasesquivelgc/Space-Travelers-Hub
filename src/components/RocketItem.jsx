@@ -10,12 +10,12 @@ function RocketItem({ rocket }) {
     <li>
       <Container fluid>
         <Row>
-          <Col md={3}><Image src={rocket.flickr_images[0]} alt={rocket.rocket_name} fluid/></Col>
+          <Col md={4} sm={5} lg={3}><Image src={rocket.flickr_images[0]} alt={rocket.rocket_name} fluid/></Col>
           <Col>
             <h3>{rocket.rocket_name}</h3>
             <p>{rocket.description}</p>
             <p>
-              Engine Type:
+              Engine Type:&nbsp;
               {rocket.engines.type}
             </p>
             <Button
@@ -34,7 +34,7 @@ function RocketItem({ rocket }) {
 
 RocketItem.propTypes = {
   rocket: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     rocket_name: PropTypes.string.isRequired,
     flickr_images: PropTypes.arrayOf(PropTypes.string).isRequired,
     engines: PropTypes.shape({
