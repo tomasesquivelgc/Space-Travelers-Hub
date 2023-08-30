@@ -32,7 +32,7 @@ function Missions() {
 
   return (
     <Container fluid>
-      <Table striped bordered hover style={{ marginTop: '20px' }}>
+      <Table striped bordered hover className="mt-4">
         <thead>
           <tr>
             <th>Mission</th>
@@ -44,17 +44,16 @@ function Missions() {
         <tbody>
           {missions.map((mission) => (
             <tr key={mission.mission_id}>
-              <td>{mission.mission_name}</td>
-              <td>{mission.description}</td>
-              <td>@in progress</td>
-              <td>
+              <td className="col-1">{mission.mission_name}</td>
+              <td className="col-8">{mission.description}</td>
+              <td className="col-1">@in progress</td>
+              <td className="col-1 center">
                 {mission.reserved ? (
                   <Button
                     type="button"
+                    className="btn btn-outline-danger "
                     style={{
                       width: '130px',
-                      border: '1px solid red',
-                      color: 'red',
                     }}
                     variant="clear"
                     onClick={() => handleLeaveMission(mission.mission_id)}
@@ -64,7 +63,10 @@ function Missions() {
                 ) : (
                   <Button
                     type="button"
-                    style={{ width: '130px', border: '1px solid black' }}
+                    className="btn btn-outline-secondary "
+                    style={{
+                      width: '130px',
+                    }}
                     variant="clear"
                     onClick={() => handleJoinMission(mission.mission_id)}
                   >
