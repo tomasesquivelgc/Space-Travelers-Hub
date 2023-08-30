@@ -2,9 +2,21 @@ import PropTypes from 'prop-types';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { Image, Button } from 'react-bootstrap';
+import { Image, Button, Badge } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { reserveRocket, cancelRocket } from '../redux/rocketsSlice';
 
 function RocketItem({ rocket }) {
+  const dispatch = useDispatch();
+
+  const handleReserveRocket = (rocketId) => {
+    dispatch(reserveRocket(rocketId));
+  };
+
+  const handleCancelRocket = (rocketId) => {
+    dispatch(cancelRocket(rocketId));
+  };
+
   return (
     <li>
       <Container fluid>
@@ -14,18 +26,34 @@ function RocketItem({ rocket }) {
           </Col>
           <Col>
             <h3>{rocket.rocket_name}</h3>
-            <p>{rocket.description}</p>
+            <p>
+              {rocket.reserved && <Badge bg="info">Reserved</Badge>}
+              {rocket.description}
+            </p>
             <p>
               Engine Type:&nbsp;
               {rocket.engines.type}
             </p>
-            <Button
-              type="button"
-              style={{ width: '160px' }}
-              variant="primary"
-            >
-              Reserve Rocket
-            </Button>
+            { rocket.reserved ? (
+              <Button
+                type="button"
+                style={{ width: '160px' }}
+                variant="outline-secondary"
+                onClick={() => handleCancelRocket(rocket.id)}
+              >
+                Cancel Rocket
+              </Button>
+            )
+              : (
+                <Button
+                  type="button"
+                  style={{ width: '160px' }}
+                  variant="primary"
+                  onClick={() => handleReserveRocket(rocket.id)}
+                >
+                  Reserve Rocket
+                </Button>
+              )}
           </Col>
         </Row>
       </Container>
@@ -42,6 +70,7 @@ RocketItem.propTypes = {
       type: PropTypes.string.isRequired,
     }).isRequired,
     description: PropTypes.string.isRequired,
+    reserved: PropTypes.bool.isRequired,
   }).isRequired,
 };
 
