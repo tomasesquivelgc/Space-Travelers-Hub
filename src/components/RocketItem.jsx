@@ -31,14 +31,22 @@ function RocketItem({ rocket }) {
               Engine Type:&nbsp;
               {rocket.engines.type}
             </p>
-            <Button
+            { rocket.reserved ? (<Button
+              type="button"
+              style={{ width: '160px' }}
+              variant="outline-secondary"
+              onClick={() => handleCancelRocket(rocket.id)}
+            >
+              Cancel Rocket
+            </Button>)
+            : (<Button
               type="button"
               style={{ width: '160px' }}
               variant="primary"
               onClick={() => handleReserveRocket(rocket.id)}
             >
               Reserve Rocket
-            </Button>
+            </Button>)}   
           </Col>
         </Row>
       </Container>
