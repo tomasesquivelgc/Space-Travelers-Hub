@@ -19,7 +19,7 @@ function Rockets() {
 
   return (
     <div>
-      <h2>Rockets</h2>
+      <br />
       <ul>
         {rockets.map((rocket) => (
           <RocketItem key={rocket.id} rocket={rocket} />
