@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Container, Table } from 'react-bootstrap';
+import {
+  Button, Container, Badge, Table,
+} from 'react-bootstrap';
 import {
   storeMissions,
   joinMission,
@@ -46,7 +48,12 @@ function Missions() {
             <tr key={mission.mission_id}>
               <td className="col-1">{mission.mission_name}</td>
               <td className="col-8">{mission.description}</td>
-              <td className="col-1">@in progress</td>
+              <td className="col-1">
+                {mission.reserved ? (
+                  <Badge className="badge bg-info" onClick={() => handleLeaveMission(mission.mission_id)}>Active Member</Badge>) : (
+                    <Badge className="badge bg-secondary" onClick={() => handleJoinMission(mission.mission_id)}>NOT A MEMBER</Badge>
+                )}
+              </td>
               <td className="col-1 center">
                 {mission.reserved ? (
                   <Button
