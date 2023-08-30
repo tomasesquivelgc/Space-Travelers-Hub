@@ -12,6 +12,7 @@ const rocketsSlice = createSlice({
         engines: {
           type: rocket.engines.type,
         },
+        description: rocket.description,
       }));
       return filteredRockets;
     },
