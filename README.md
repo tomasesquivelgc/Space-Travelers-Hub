@@ -54,7 +54,7 @@
 
 ## 🚀 You can check the Live Demo here<a name="live-demo"></a>
 
-[Live SpaceX Coming Soon]() 
+[Link to live version](https://guileless-halva-645039.netlify.app) 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -106,7 +106,7 @@ To run the project:
   cd PATH_TO_CLONE
   npm install
   npm run build
-  npm start
+  npm run preview
 ```
 
 Method 2:
@@ -135,7 +135,7 @@ or a web-hosting platform of your choice.
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] Deployment
+- [X] Deployment
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -164,8 +164,6 @@ If you like this project please give me a star and share my portfolio with repor
 I would like to thank to the Microverse team for teaching me this tool.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FAQ (optional) -->
 
 <!-- LICENSE -->
 
