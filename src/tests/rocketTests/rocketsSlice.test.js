@@ -1,6 +1,6 @@
 // tests for the rocketsSlice redux slice
-import rocketsReducer, { setRockets, reserveRocket, cancelRocket } from './rocketsSlice';
-import { expect, test } from "vitest";
+import { expect, test } from 'vitest';
+import rocketsReducer, { setRockets, reserveRocket, cancelRocket } from '../../redux/rocketsSlice';
 
 describe('reducers', () => {
   test('should handle setRockets', () => {
@@ -20,7 +20,7 @@ describe('reducers', () => {
     const action = setRockets(rockets);
     const nextState = rocketsReducer(initialState, action);
     expect(nextState).toEqual(rockets);
-  })
+  });
   test('should handle reserveRocket', () => {
     const initialState = [
       {
